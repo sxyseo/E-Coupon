@@ -1,10 +1,10 @@
 <view id="page-detail">
-  <image id="goods-pic" style="height:{{picWidth}}px;width:{{picWidth}}px;" src="{{couponInfo.ItemPic}}"></image>
+  <image id="goods-pic" style="height:{{picWidth}}px;width:{{picWidth}}px;" src="{{couponInfo.pict_url}}"></image>
   <view id="good-info">
-    <view id="good-name">{{couponInfo.ItemName}}</view>
+    <view id="good-name">{{couponInfo.title}}</view>
     <view>
-      <view id="good-price">在售价: ￥{{couponInfo.ItemPrice}}</view>
-      <view id="good-price-coupon">券后价: ￥{{couponInfo.QuanHouJia}}</view>
+      <view id="good-price">在售价: ￥{{couponInfo.reserve_price}}</view>
+      <view id="good-price-coupon">券后价: ￥{{couponInfo.zk_final_price}}</view>
     </view>
   </view>
   <view id="coupon-info">
@@ -12,7 +12,7 @@
       <view id="coupon-denomination">{{couponInfo.CouponDenomination}}</view>
       <view id="coupon-coin">
         <image src="../../images/coupon.png"></image>￥{{couponInfo.Jian}}</view>
-      <view id="goods-sales">月销量: {{couponInfo.MonthlySales}}</view>
+      <view id="goods-sales">月销量: {{couponInfo.volume}}</view>
     </view>
     <view class="coupon-info-item-des">
       <view class="coupon-des">优惠券ID: {{couponInfo.CouponID}}</view>

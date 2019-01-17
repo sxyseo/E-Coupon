@@ -34,7 +34,7 @@ Page({
   getMoreCouponList: function () {
     var that = this
     wx.request({
-      url: "https://taoquan.cillbiz.com/QueryCoupon.ashx",
+      url: "http://192.168.31.45:8080/renren-fast/app/getCouponItem",
       data: {
         "Acount": {
           "UserName": app.globalData.Acount.UserName,
@@ -51,14 +51,19 @@ Page({
       },
       method: "POST",
       success: function (resRequest) {
-        if (resRequest.data.Result == "请求成功") {
-          if (resRequest.data.Quans != null && resRequest.data.Quans.length > 0) {
-            resRequest.data.Quans.forEach(function (coupon) {
-              coupon.ZongHeBiLiText = parseInt(coupon.ZongHeBiLi * 100) + "%"
-              coupon.CouponEndTime = coupon.CouponEndTime.substring(0, 10)
+        console.log("111111111");
+        if (resRequest.data.code == 0) {
+          if (resRequest.data.data != null && resRequest.data.data.length > 0) {
+            console.log("2222222222222");
+            resRequest.data.data.forEach(function (coupon) {
+              console.log(coupon);
+              console.log("33333333333")
+              coupon.ZongHeBiLiText = parseInt(coupon.zk_final_price / coupon.reserve_price * 100) + "%"
+              // coupon.CouponEndTime = coupon.CouponEndTime.substring(0, 10)
             })
+            console.log(resRequest.data.data.tbk_item_get_response.results.n_tbk_item);
             that.setData({
-              couponList: that.data.couponList.concat(resRequest.data.Quans),
+              couponList: that.data.couponList.concat(resRequest.data.data.tbk_item_get_response.results.n_tbk_item),
               isLoading: false
             })
           }
@@ -75,7 +80,7 @@ Page({
   getCategoryList: function () {
     var that = this
     wx.request({
-      url: "https://taoquan.cillbiz.com/GetCategory.ashx",
+      url: "http://192.168.31.45:8080/renren-fast/app/getCouponItem",
       data: {
         "Acount": {
           "UserName": app.globalData.Acount.UserName,
@@ -85,8 +90,10 @@ Page({
       method: "POST",
       success: function (resRequest) {
         if (resRequest.data.Result == "请求成功") {
+          console.log(data.tbk_item_get_response.results.n_tbk_item);
+          console.log("111111111");
           that.setData({
-            categoryList: resRequest.data.Categorys.concat(that.data.categoryList),
+            categoryList: resRequest.data.Categorys.concat(data.tbk_item_get_response.results.n_tbk_item),
             selectIndex: resRequest.data.Categorys.length + 1
           })
         }

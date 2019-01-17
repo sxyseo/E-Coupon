@@ -34,7 +34,7 @@ Page({
   getMoreCouponList: function () {
     var that = this
     wx.request({
-      url: "https://taoquan.cillbiz.com/QueryCoupon.ashx",
+      url: "http://localhost:8080/renren-fast/app/getCouponItem",
       data: {
         "Acount": {
           "UserName": app.globalData.Acount.UserName,
@@ -52,6 +52,8 @@ Page({
       method: "POST",
       success: function (resRequest) {
         if (resRequest.data.Result == "请求成功") {
+          console.log(data.tbk_item_get_response.results.n_tbk_item);
+          console.log("111111111");
           if (resRequest.data.Quans != null && resRequest.data.Quans.length > 0) {
             resRequest.data.Quans.forEach(function (coupon) {
               coupon.ZongHeBiLiText = parseInt(coupon.ZongHeBiLi * 100) + "%"

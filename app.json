@@ -11,7 +11,7 @@
     "backgroundTextStyle": "dark",
     "backgroundColor": "#f7f7f7",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "淘券VIP",
+    "navigationBarTitleText": "领券VIP",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

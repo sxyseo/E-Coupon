@@ -29,17 +29,17 @@
     </view>
   </view>
   <view id="coupon-list">
-    <navigator wx:for="{{couponList}}" wx:key="item.ItemID" url="../detail/detail" bindtap="setCouponInfo" data-index="{{index}}" >
+    <navigator wx:for="{{couponList}}" wx:key="item.seller_id" url="../detail/detail" bindtap="setCouponInfo" data-index="{{index}}" >
       <view class="coupon-item">
         <view class="border-left"></view>
-        <image src="{{item.ItemPic}}"></image>
+        <image src="{{item.pict_url}}"></image>
         <view class="goods-content">
           <view class="goods-content-view">
-            <view class="goods-name">{{item.ItemName}}</view>
+            <view class="goods-name">{{item.title}}</view>
             <view class="goods-price-sales">
-              <view class="goods-price">￥{{item.ItemPrice}}</view>
-              <view class="goods-price-coupon">￥{{item.QuanHouJia}}</view>
-              <view class="goods-sales">月销量: {{item.MonthlySales}}</view>
+              <view class="goods-price">￥{{item.reserve_price}}</view>
+              <view class="goods-price-coupon">￥{{item.zk_final_price}}</view>
+              <view class="goods-sales">月销量: {{item.volume}}</view>
             </view>
             <view class="coupon-denomination">{{item.CouponDenomination}}</view>
           </view>
