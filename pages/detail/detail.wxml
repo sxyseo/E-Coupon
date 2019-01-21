@@ -3,27 +3,27 @@
   <view id="good-info">
     <view id="good-name">{{couponInfo.title}}</view>
     <view>
-      <view id="good-price">在售价: ￥{{couponInfo.reserve_price}}</view>
+      <view id="good-price">在售价: ￥{{couponInfo.zk_final_price}}</view>
       <view id="good-price-coupon">券后价: ￥{{couponInfo.zk_final_price}}</view>
     </view>
   </view>
   <view id="coupon-info">
     <view class="coupon-info-item coupon-info-item-first">
-      <view id="coupon-denomination">{{couponInfo.CouponDenomination}}</view>
-      <view id="coupon-coin">
-        <image src="../../images/coupon.png"></image>￥{{couponInfo.Jian}}</view>
+      <view id="coupon-denomination">{{couponInfo.coupon_info}}</view>
+      <!-- <view id="coupon-coin">
+        <image src="../../images/coupon.png"></image>￥{{couponInfo.coupon_info}}</view> -->
       <view id="goods-sales">月销量: {{couponInfo.volume}}</view>
     </view>
     <view class="coupon-info-item-des">
-      <view class="coupon-des">优惠券ID: {{couponInfo.CouponID}}</view>
-      <view class="coupon-des">剩余优惠券: {{couponInfo.CouponRemaining}}</view>
-      <view class="coupon-des">优惠券结束时间: {{couponInfo.CouponEndTime}}</view>
+      <view class="coupon-des">优惠券ID: {{couponInfo.seller_id}}</view>
+      <view class="coupon-des">剩余优惠券: {{couponInfo.coupon_remain_count}}</view>
+      <view class="coupon-des">优惠券结束时间: {{couponInfo.coupon_end_time}}</view>
     </view>
   </view>
   <view id="shop">
     <view id="platform-type">
       <image src="{{platformTypeUrl}}"></image>{{couponInfo.PlatformType}}</view>
-    <view id="shop-name">店铺名称：{{couponInfo.ShopName}}</view>
+    <view id="shop-name">店铺名称：{{couponInfo.shop_title}}</view>
   </view>
   <view id="get-coupon">
     <button bindtap="getCoupon" type="warn" loading="{{loadingBtn}}">淘口令购买</button>
@@ -33,8 +33,8 @@
       <view id="tao-kou-ling-title">淘口令购买
         <icon id="closed" type="cancel" size="30" color="#fff" bindtap="hideView" />
       </view>
-      <view id="tao-kou-ling-content">
-        <view id="copy-method">点击文本后，长按选择“全部复制”</view>
+      <view id="tao-kou-ling-content" bindtap='getCode'>
+        <view id="copy-method">淘口令已自动复制到剪切板</view>
         <input id="tao-kou-ling-text" value="{{taoKouLing}}" maxlength="{{maxLength}}" />
       </view>
       <view id="explain">复制之后，请打开【手机淘宝】购买！</view>

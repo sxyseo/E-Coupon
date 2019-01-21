@@ -39,7 +39,7 @@
 .coupon-content{z-index: 1;width: 80px;height: 80px;flex-shrink:0;margin-left: 10px;position: relative;background-color: #f0f0f0;padding: 10px 0;border-left: 1px #ddd dotted;}
 .coupon-background{width: 80px;height: 60px;line-height: 60px; color: #fff;font-size: 60px;text-align: center;position: absolute;left: 0;top: 20px;}
 .coupon-content-view{padding: 0 5px; width: 65px;height: 80px;z-index: 2;position: relative;text-align: left;}
-.coupon-coin{color: #f40;font-size: 24px;line-height: 20px;margin-bottom: 10px;margin-left: -5px;}
+.coupon-coin{color: #f40;font-size: 10px;line-height: 20px;margin-bottom: 10px;margin-left: -5px;}
 .coupon-num{color: #999;font-size: 10px;overflow:hidden; white-space:nowrap;line-height: 15px;margin-bottom: 5px;}
 .coupon-ratio{color: #999;font-size: 10px;overflow:hidden; white-space:nowrap;line-height: 15px;display: flex;}
 .coupon-ratio view{color: #f40;line-height: 30px;margin-left: 6px;font-size: 14px;}

@@ -34,7 +34,7 @@ Page({
   getMoreCouponList: function () {
     var that = this
     wx.request({
-      url: "http://192.168.31.45:8080/renren-fast/app/getCouponItem",
+      url: "http://192.168.31.88:8080/hui/app/getCouponItem",
       data: {
         "Acount": {
           "UserName": app.globalData.Acount.UserName,
@@ -58,12 +58,12 @@ Page({
             resRequest.data.data.forEach(function (coupon) {
               console.log(coupon);
               console.log("33333333333")
-              coupon.ZongHeBiLiText = parseInt(coupon.zk_final_price / coupon.reserve_price * 100) + "%"
+              coupon.ZongHeBiLiText = parseInt(coupon.commission_rate * 10) + "%"
               // coupon.CouponEndTime = coupon.CouponEndTime.substring(0, 10)
             })
-            console.log(resRequest.data.data.tbk_item_get_response.results.n_tbk_item);
+            console.log(resRequest.data.data);
             that.setData({
-              couponList: that.data.couponList.concat(resRequest.data.data.tbk_item_get_response.results.n_tbk_item),
+              couponList: that.data.couponList.concat(resRequest.data.data),
               isLoading: false
             })
           }
@@ -80,7 +80,7 @@ Page({
   getCategoryList: function () {
     var that = this
     wx.request({
-      url: "http://192.168.31.45:8080/renren-fast/app/getCouponItem",
+      url: "http://192.168.31.88:8080/hui/app/getCouponItem",
       data: {
         "Acount": {
           "UserName": app.globalData.Acount.UserName,

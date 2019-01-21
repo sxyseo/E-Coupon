@@ -32,27 +32,47 @@ Page({
       loadingBtn: true
     })
     wx.request({
-      url: "https://taoquan.cillbiz.com/GetCouponDetail.ashx",
+      url: "http://192.168.31.88:8080/hui/app/createTpwd",
       data: {
-        "Acount": {
-          "UserName": app.globalData.Acount.UserName,
-          "PassWord": app.globalData.Acount.PassWord
-        },
-        "Condition": {
-          "ItemID": that.data.couponInfo.ItemID,
-          "CouponID": that.data.couponInfo.CouponID
-        }
+        "numIid": that.data.couponInfo.num_iid,
+        "sellerId": that.data.couponInfo.seller_id,
+        "title": that.data.couponInfo.shop_title + that.data.couponInfo.coupon_info,
+        "clickUrl": that.data.couponInfo.coupon_click_url,
+        "logoUrl": that.data.couponInfo.pict_url
       },
       method: "POST",
       success: function (resRequest) {
-        if (resRequest.data.Result == "请求成功") {
+        if (resRequest.data.code == 0) {
           that.setData({
-            taoKouLing: resRequest.data.QuanDetail.TaoKouLing,
+            taoKouLing: resRequest.data.data.model,
             loadingBtn: false,
             showStatus: true,
-            maxLength: resRequest.data.QuanDetail.TaoKouLing.length
+            maxLength: resRequest.data.data.model.length
+          })
+          wx.setClipboardData({
+            data: resRequest.data.data.model,
+            success: function (res) {
+              wx.getClipboardData({
+                success: function (res) {
+                  console.log(res.data);
+                }
+              })
+            }
           })
         }
+      }
+    })
+  },
+  getCode: function (options) {
+    var that = this;
+    wx.setClipboardData({
+      data: that.data.taoKouLing,
+      success: function(res) {
+        wx.getClipboardData({
+          success: function(res) {
+            console.log(res.data);
+          }
+        })
       }
     })
   }

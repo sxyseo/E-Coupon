@@ -47,8 +47,8 @@
         <view class="coupon-content">
           <view class="coupon-background">券</view>
           <view class="coupon-content-view">
-            <view class="coupon-coin">￥{{item.Jian}}</view>
-            <view class="coupon-num">数量: {{item.CouponTotal}}</view>
+            <view class="coupon-coin">￥{{item.coupon_info}}</view>
+            <view class="coupon-num">数量: {{item.coupon_remain_count}}</view>
             <view class="coupon-ratio">
               <text>优惠\n比例</text>
               <view>{{item.ZongHeBiLiText}}</view>

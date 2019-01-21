@@ -34,7 +34,7 @@ Page({
   getMoreCouponList: function () {
     var that = this
     wx.request({
-      url: "http://localhost:8080/renren-fast/app/getCouponItem",
+      url: "http://localhost:8080/hui/app/getCouponItem",
       data: {
         "Acount": {
           "UserName": app.globalData.Acount.UserName,
